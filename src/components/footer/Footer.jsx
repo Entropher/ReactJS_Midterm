@@ -3,11 +3,18 @@ import styles from "./Footer.module.css";
 const Footer = ({ list }) => {
   return (
     <footer className={styles.footer}>
-      {list.map((item) => (
-        <div key={item.id} className={styles.footerItem}>
-          <p className={styles.itemTitle}>{item.name}</p>
-        </div>
-      ))}
+      <div className={styles.footerContent}>
+        <nav className={styles.footerLinks} aria-label="Legal information">
+          {list.map((item) => (
+            <a key={item.id} className={styles.footerLink} href={item.url}>
+              {item.name}
+            </a>
+          ))}
+        </nav>
+        <p className={styles.copyright}>
+          © 1996-2021, Amazon.com, Inc. or its affiliates
+        </p>
+      </div>
     </footer>
   );
 };

@@ -19,21 +19,23 @@ export const metadata = {
 };
 
 const navbarItems = [
-  { id: 1, name: "Home", url: "/" },
-  { id: 2, name: "About", url: "/about" },
-  { id: 3, name: "Contact", url: "/contact" },
+  { id: 1, name: "Home", url: "/", icon: "home", active: true },
+  { id: 2, name: "Dashboards", url: "/dashboards", icon: "dashboard" },
+  { id: 3, name: "Segments", url: "/segments", icon: "segments" },
+  { id: 4, name: "Account", url: "/account", icon: "account" },
+  { id: 5, name: "Settings", url: "/settings", icon: "settings" },
 ];
 const footerItems = [
-  { id: 1, name: "Privacy Policy" },
-  { id: 2, name: "Terms of Service" },
-  { id: 3, name: "Contact" },
+  { id: 1, name: "Conditions of Use", url: "/conditions-of-use" },
+  { id: 2, name: "Privacy Notice", url: "/privacy" },
+  { id: 3, name: "Interest-Based Ads", url: "/interest-based-ads" },
 ];
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
       <body>
-        <Navbar data={navbarItems} title={"My First Website"} logo={"M"} />
+        <Navbar data={navbarItems} />
         {children}
         <Footer list={footerItems} />
       </body>
