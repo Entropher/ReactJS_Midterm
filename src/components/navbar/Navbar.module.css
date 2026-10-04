@@ -1,102 +1,108 @@
 .header {
   width: 100%;
-  border-bottom: 1px solid #273449;
-  background: #172033;
-  color: #f8fafc;
+  padding: 18px 3.6%;
+  background: linear-gradient(115deg, #123393, #234bc7);
 }
 
 .navbarContainer {
-  display: flex;
-  width: min(100% - 40px, 1120px);
-  min-height: 76px;
+  width: min(100%, 1440px);
+  min-height: 70px;
   margin: 0 auto;
-  align-items: center;
-  justify-content: space-between;
-  gap: 32px;
-}
-
-.navbarLogo {
-  display: inline-flex;
-  align-items: center;
-  gap: 11px;
-  color: #ffffff;
-  font-size: 16px;
-  font-weight: 700;
-  letter-spacing: 0.01em;
-  white-space: nowrap;
-}
-
-.logoMark {
-  display: grid;
-  width: 34px;
-  height: 34px;
-  place-items: center;
-  border-radius: 10px;
-  background: #f4b942;
-  color: #172033;
-  font-size: 18px;
-  font-weight: 800;
-  box-shadow: 0 5px 14px rgb(244 185 66 / 20%);
+  overflow: hidden;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgb(12 31 91 / 12%);
 }
 
 .navbarMenu {
   display: flex;
+  min-height: inherit;
   align-items: center;
-  gap: 8px;
+  justify-content: space-around;
+}
+
+.navbarItem {
+  position: relative;
+  display: flex;
+  min-width: 0;
+  height: 100%;
+  flex: 1;
+  align-items: stretch;
+  justify-content: center;
 }
 
 .navbarItem a {
-  display: inline-flex;
-  min-height: 40px;
+  display: flex;
+  min-height: 70px;
   align-items: center;
-  padding: 0 15px;
-  border: 1px solid transparent;
-  border-radius: 8px;
-  color: #c8d1df;
-  font-size: 14px;
-  font-weight: 600;
-  transition:
-    background-color 160ms ease,
-    border-color 160ms ease,
-    color 160ms ease;
+  justify-content: center;
+  gap: 12px;
+  padding: 0 6px;
+  color: #292929;
+  font-size: 22px;
+  font-weight: 400;
+  white-space: nowrap;
+  transition: color 160ms ease;
 }
 
 .navbarItem a:hover,
 .navbarItem a:focus-visible {
-  border-color: #3a4960;
-  background: #253149;
-  color: #ffffff;
-  outline: none;
+  color: #3d5bff;
 }
 
-.navbarLogo:focus-visible {
-  border-radius: 8px;
-  outline: 3px solid rgb(244 185 66 / 55%);
-  outline-offset: 5px;
+.navbarItem a:focus-visible {
+  outline: 3px solid #3d5bff;
+  outline-offset: -5px;
+}
+
+.active a {
+  color: #3d5bff;
+}
+
+.active::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 4px;
+  background: #3d5bff;
+  content: "";
 }
 
 @media (max-width: 560px) {
+  .header {
+    padding: 14px 12px;
+  }
+
   .navbarContainer {
-    width: min(100% - 28px, 1120px);
-    min-height: 68px;
-    flex-wrap: wrap;
-    gap: 8px;
-    padding: 10px 0;
+    min-height: 76px;
   }
 
   .navbarMenu {
-    width: 100%;
-    justify-content: space-between;
-    gap: 4px;
+    overflow-x: auto;
+    justify-content: flex-start;
   }
 
   .navbarItem {
-    flex: 1;
+    flex: 0 0 auto;
   }
 
   .navbarItem a {
-    width: 100%;
-    justify-content: center;
-    padding: 0 8px;
+    min-height: 76px;
+    gap: 8px;
+    padding: 0 18px;
+    font-size: 18px;
+  }
+
+  .navbarItem a svg {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+@media (min-width: 561px) {
+  .navbarItem a svg {
+    width: 24px;
+    height: 24px;
   }
 }

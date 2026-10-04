@@ -1,20 +1,44 @@
 import Link from "next/link";
+import {
+  House,
+  PanelsTopLeft,
+  Settings,
+  UserRound,
+  UserRoundPlus,
+} from "lucide-react";
 import styles from "./Navbar.module.css";
 
-const Navbar = ({ data, title, logo }) => {
+const icons = {
+  home: House,
+  dashboard: PanelsTopLeft,
+  segments: UserRoundPlus,
+  account: UserRound,
+  settings: Settings,
+};
+
+const Navbar = ({ data }) => {
   return (
     <nav className={styles.header}>
       <div className={styles.navbarContainer}>
-        <Link href="/" className={styles.navbarLogo}>
-          <span className={styles.logoMark}>{logo}</span>
-          <span>{title}</span>
-        </Link>
         <div className={styles.navbarMenu}>
-          {data.map((item) => (
-            <div className={styles.navbarItem} key={item.id}>
-              <Link href={item.url}>{item.name}</Link>
-            </div>
-          ))}
+          {data.map((item) => {
+            const Icon = icons[item.icon];
+
+            return (
+              <div
+                className={`${styles.navbarItem} ${item.active ? styles.active : ""}`}
+                key={item.id}
+              >
+                <Link
+                  href={item.url}
+                  aria-current={item.active ? "page" : undefined}
+                >
+                  <Icon aria-hidden="true" size={30} strokeWidth={1.9} />
+                  <span>{item.name}</span>
+                </Link>
+              </div>
+            );
+          })}
         </div>
       </div>
     </nav>
