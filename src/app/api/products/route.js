@@ -1,6 +1,8 @@
 export async function GET() {
   try {
-    const response = await fetch("https://dummyjson.com/products?limit=20");
+    const response = await fetch("https://fakestoreapi.com/products", {
+      cache: "no-store",
+    });
 
     if (!response.ok) {
       return Response.json(
@@ -9,8 +11,8 @@ export async function GET() {
       );
     }
 
-    const result = await response.json();
-    return Response.json(result.products.slice(0, 20));
+    const products = await response.json();
+    return Response.json(products);
   } catch {
     return Response.json(
       { error: "პროდუქტების ჩატვირთვა ვერ მოხერხდა." },
