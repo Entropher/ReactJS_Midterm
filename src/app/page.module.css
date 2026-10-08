@@ -136,6 +136,18 @@
   font-weight: 700;
 }
 
+.detailsLink {
+  color: #555;
+  font-size: 12px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.detailsLink:hover,
+.detailsLink:focus-visible {
+  color: #111;
+}
+
 .deleteButton {
   position: absolute;
   top: 8px;
