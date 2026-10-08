@@ -53,6 +53,9 @@ export default async function ProductDetailsPage({ params }) {
             <span aria-label={`${product.rating.rate} out of 5 stars`}>
               {"★".repeat(Math.round(product.rating.rate))}
             </span>
+            <span className={styles.ratingValue}>
+              {product.rating.rate.toFixed(1)} / 5
+            </span>
             <span className={styles.reviews}>
               {product.rating.count.toLocaleString()} reviews
             </span>

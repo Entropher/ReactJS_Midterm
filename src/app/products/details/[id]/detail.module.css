@@ -73,6 +73,13 @@
   letter-spacing: 0;
 }
 
+.ratingValue {
+  color: #292929;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
 .price {
   margin-top: 24px;
   font-size: 30px;
