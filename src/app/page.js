@@ -2,6 +2,7 @@
 
 import styles from "./page.module.css";
 import { useState, useEffect } from "react";
+import Link from "next/link";
 
 export default function Home() {
   const [products, setProducts] = useState([]);
@@ -59,7 +60,7 @@ export default function Home() {
       <main className={styles.content}>
         <header className={styles.heading}>
           <div>
-            <p className={styles.eyebrow}>DUMMYJSON API</p>
+            <p className={styles.eyebrow}>FAKE STORE</p>
             <h1>პროდუქტები</h1>
           </div>
           {!isLoading && !error && (
@@ -79,16 +80,35 @@ export default function Home() {
           <ul className={styles.productList}>
             {products.map((product) => (
               <li className={styles.product} key={product.id}>
-                <div className={styles.imageFrame}>
-                  <img
-                    className={styles.image}
-                    src={product.thumbnail}
-                    alt={product.title}
-                  />
-                </div>
+                <Link
+                  className={styles.productLink}
+                  href={`/products/details/${product.id}`}
+                  aria-label={`${product.title} - დეტალები`}
+                >
+                  <div className={styles.imageFrame}>
+                    <img
+                      className={styles.image}
+                      src={product.image}
+                      alt={product.title}
+                    />
+                  </div>
+                </Link>
                 <div className={styles.productInfo}>
+                  <p className={styles.shipping}>Ships to Georgia</p>
                   <p className={styles.category}>{product.category}</p>
-                  <h2 className={styles.productTitle}>{product.title}</h2>
+                  <h2 className={styles.productTitle}>
+                    <Link href={`/products/details/${product.id}`}>
+                      {product.title}
+                    </Link>
+                  </h2>
+                  <p className={styles.rating}>
+                    <span aria-label={`${product.rating.rate} out of 5 stars`}>
+                      {"★".repeat(Math.round(product.rating.rate))}
+                    </span>
+                    <span className={styles.reviewCount}>
+                      {product.rating.count.toLocaleString()} reviews
+                    </span>
+                  </p>
                   <div className={styles.productFooter}>
                     <p className={styles.price}>${product.price.toFixed(2)}</p>
                     <button
@@ -123,7 +143,7 @@ export default function Home() {
                   <div className={styles.imageFrame}>
                     <img
                       className={styles.image}
-                      src={product.thumbnail}
+                      src={product.image}
                       alt={product.title}
                     />
                   </div>

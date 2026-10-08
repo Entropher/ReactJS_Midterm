@@ -1,8 +1,13 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import {
   House,
   PanelsTopLeft,
+  Package,
   Settings,
+  ShoppingCart,
   UserRound,
   UserRoundPlus,
 } from "lucide-react";
@@ -14,24 +19,33 @@ const icons = {
   segments: UserRoundPlus,
   account: UserRound,
   settings: Settings,
+  products: Package,
+  profile: UserRound,
+  cart: ShoppingCart,
 };
 
 const Navbar = ({ data }) => {
+  const pathname = usePathname();
+
   return (
     <nav className={styles.header}>
       <div className={styles.navbarContainer}>
         <div className={styles.navbarMenu}>
           {data.map((item) => {
             const Icon = icons[item.icon];
+            const isActive =
+              item.url === "/"
+                ? pathname === "/"
+                : pathname === item.url || pathname.startsWith(`${item.url}/`);
 
             return (
               <div
-                className={`${styles.navbarItem} ${item.active ? styles.active : ""}`}
+                className={`${styles.navbarItem} ${isActive ? styles.active : ""}`}
                 key={item.id}
               >
                 <Link
                   href={item.url}
-                  aria-current={item.active ? "page" : undefined}
+                  aria-current={isActive ? "page" : undefined}
                 >
                   <Icon aria-hidden="true" size={30} strokeWidth={1.9} />
                   <span>{item.name}</span>

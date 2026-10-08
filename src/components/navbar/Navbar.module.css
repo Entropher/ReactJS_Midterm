@@ -19,6 +19,7 @@
   min-height: inherit;
   align-items: center;
   justify-content: space-around;
+  overflow-x: auto;
 }
 
 .navbarItem {
@@ -26,7 +27,7 @@
   display: flex;
   min-width: 0;
   height: 100%;
-  flex: 1;
+  flex: 1 0 auto;
   align-items: stretch;
   justify-content: center;
 }
@@ -36,10 +37,10 @@
   min-height: 70px;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-  padding: 0 6px;
+  gap: 9px;
+  padding: 0 clamp(9px, 1vw, 15px);
   color: #292929;
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 400;
   white-space: nowrap;
   transition: color 160ms ease;
@@ -90,8 +91,8 @@
   .navbarItem a {
     min-height: 76px;
     gap: 8px;
-    padding: 0 18px;
-    font-size: 18px;
+    padding: 0 14px;
+    font-size: 16px;
   }
 
   .navbarItem a svg {
