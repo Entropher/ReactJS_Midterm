@@ -59,7 +59,7 @@ export default function CartPage() {
   return (
     <main className={styles.page}>
       <section className={styles.cart} aria-labelledby="cart-title">
-        <h1 id="cart-title">Shopping Cart</h1>
+        <h1 id="cart-title">კალათა</h1>
 
         {isLoading ? (
           <p className={styles.message}>პროდუქტები იტვირთება...</p>
@@ -75,9 +75,9 @@ export default function CartPage() {
               className={`${styles.grid} ${styles.tableHead}`}
               aria-hidden="true"
             >
-              <span>PRODUCT</span>
-              <span>QUANTITY</span>
-              <span>PRICE</span>
+              <span>პროდუქტი</span>
+              <span>რაოდენობა</span>
+              <span>ფასი</span>
               <span />
             </div>
             <ul className={styles.itemList}>
