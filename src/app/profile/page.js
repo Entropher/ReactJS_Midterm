@@ -21,7 +21,6 @@ export default async function ProfilePage() {
   return (
     <main className={styles.page}>
       <section className={styles.profile} aria-labelledby="profile-title">
-        <p className={styles.eyebrow}>ACCOUNT</p>
         <h1 id="profile-title">პროფილი</h1>
         {hasError ? (
           <p className={styles.error} role="alert">

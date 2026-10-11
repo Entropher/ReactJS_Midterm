@@ -149,11 +149,13 @@
 }
 
 .deleteButton {
+  display: grid;
   position: absolute;
   top: 8px;
   right: 8px;
   width: 30px;
   height: 30px;
+  place-items: center;
   border: 0;
   border-radius: 50%;
   background: #fff;
@@ -161,17 +163,21 @@
   cursor: pointer;
   font: inherit;
   font-size: 0;
-  opacity: 0;
-  transition: opacity 150ms ease;
+  line-height: 1;
+  box-shadow: 0 1px 5px rgb(0 0 0 / 15%);
+  transition:
+    background-color 150ms ease,
+    color 150ms ease;
+}
+
+.deleteButton::before {
+  content: "×";
+  font-size: 22px;
 }
 
 .deleteButton:hover {
-  background: #fbf2ef;
-}
-
-.product:hover .deleteButton,
-.deleteButton:focus-visible {
-  opacity: 1;
+  background: #984a3b;
+  color: #fff;
 }
 
 .deleteButton:focus-visible {
@@ -263,10 +269,6 @@
 
   .price {
     font-size: 18px;
-  }
-
-  .deleteButton {
-    opacity: 1;
   }
 }
 
